@@ -1,4 +1,4 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -12,56 +12,164 @@
 body {
     color: var(--orange);
     font-family: 'Finger Paint', cursive;
-}
-h1 {
-    font-size: 54px;
-    text-transform: uppercase;
-}
-
-.container {
-    padding: 40px;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    height: 100vh;
     background-color: #37505C;
 }
 
-#gameboard {
-    width: 300px;
+.container {
     display: flex;
-    flex-wrap: wrap;
-    margin-top: 40px;
+    flex-direction: column;
+    align-items: center;
 }
+
+h1 {
+    font-size: 42px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+#gameboard {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 2px;
+    margin-top: 20px;
+    background-color: #222;
+}
+
 .box {
-    height: 100px;
-    width: 100px;
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 24px;
     color: var(--orange);
-    font-size: 120px;
-    border-right: 2px solid;
-    border-bottom: 2px solid;
+    border: 1px solid var(--orange);
+    background-color: #444;
+    cursor: pointer;
 }
-.box:nth-child(3n) {
-    border-right: none;
+
+.box:hover {
+    background-color: #555;
 }
-.box:nth-child(6) ~ .box {
-    border-bottom: none;
-} 
+
 button {
+    margin-top: 10px;
     padding: 10px 20px;
     border-radius: 10px;
     background-color: var(--orange);
     color: #333;
-    border-color: var(--orange);
+    border: none;
     font-size: 18px;
     transition: 200ms transform;
     font-weight: 600;
-}
-button:hover {
     cursor: pointer;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: var(--orange);
+}
+
+#modalCloseBtn {
+    color: var(--orange);
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+#modalCloseBtn:hover {
+    color: #fff;
+}
+
+
+
+
+
+
+/* Existing CSS remains unchanged */
+#gameboard {
+    display: none; /* Initially hide the gameboard */
+    grid-template-columns: repeat(10, 1fr);
+    gap: 2px;
+    margin-top: 20px;
+    background-color: #222;
+}
+
+#restartBtn {
+    display: none;
+}
+
+#gameboard {
+    display: none;
+}
+
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: var(--orange);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: var(--orange);
+    color: #333;
+    border: none;
+    font-size: 18px;
+    transition: 200ms transform;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:hover {
     transform: translateY(-2px);
 }
